@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Galaxy S25 Ultra | Official</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --samsung-blue: #1428a0;
+            --samsung-light-blue: #0a7cff;
+            --samsung-dark: #000;
+            --samsung-gray: #f7f7f7;
+            --samsung-light-gray: #f9f9f9;
+            --samsung-text: #333;
+            --samsung-white: #fff;
+            --samsung-gold: #d4af37;
+        }
+        
+        body {
+            color: var(--samsung-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--samsung-light-gray);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--samsung-white);
+        }
+        
+        .logo span {
+            color: var(--samsung-light-blue);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--samsung-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--samsung-light-blue);
+        }
+        
+        .cta-button {
+            background-color: var(--samsung-light-blue);
+            color: var(--samsung-white);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--samsung-blue);
+            transform: translateY(-2px);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            color: var(--samsung-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--samsung-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .hero .cta-button {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+        }
+        
+        .hero .cta-button.outline {
+            background-color: transparent;
+            border: 2px solid var(--samsung-white);
+        }
+        
+        .hero .cta-button.outline:hover {
+            background-color: var(--samsung-white);
+            color: var(--samsung-dark);
+        }
+        
+        /* Features Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--samsung-dark);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background-color: var(--samsung-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-card:hover .feature-img img {
+            transform: scale(1.05);
+        }
+        
+        .feature-content {
+            padding: 25px;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--samsung-dark);
+        }
+        
+        /* Video Showcase */
+        .video-showcase {
+            background-color: var(--samsung-dark);
+            color: var(--samsung-white);
+            position: relative;
+            padding: 150px 0;
+        }
+        
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.4);
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        
+        .video-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            background-color: var(--samsung-light-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.1);
+            background-color: var(--samsung-blue);
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--samsung-gray);
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: var(--samsung-white);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Specs Section */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .spec-card {
+            background-color: var(--samsung-white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .spec-icon {
+            font-size: 2.5rem;
+            color: var(--samsung-light-blue);
+            margin-bottom: 20px;
+        }
+        
+        .spec-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--samsung-dark);
+        }
+        
+        /* Pre-order Section */
+        .pre-order {
+            background: linear-gradient(135deg, var(--samsung-blue), var(--samsung-dark));
+            color: var(--samsung-white);
+            text-align: center;
+        }
+        
+        .pre-order h2 {
+            color: var(--samsung-white);
+            margin-bottom: 20px;
+        }
+        
+        .pre-order p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--samsung-gold);
+        }
+        
+        .color-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: transform 0.3s ease, border 0.3s ease;
+        }
+        
+        .color-option.active {
+            border: 3px solid var(--samsung-white);
+            transform: scale(1.2);
+        }
+        
+        .color-option.black {
+            background-color: #1a1a1a;
+        }
+        
+        .color-option.white {
+            background-color: #f0f0f0;
+        }
+        
+        .color-option.blue {
+            background-color: #0a7cff;
+        }
+        
+        .color-option.gold {
+            background-color: #d4af37;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--samsung-dark);
+            color: var(--samsung-white);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--samsung-light-blue);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--samsung-light-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.95);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Animation for scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">Samsung <span>Galaxy</span></div>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#specs">Specs</a></li>
+                    <li><a href="#preorder">Pre-order</a></li>
+                </ul>
+            </nav>
+            <a href="#preorder" class="cta-button">Pre-order Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content reveal">
+            <h1>Galaxy S25 Ultra</h1>
+            <p>Experience the future of mobile technology with the revolutionary Galaxy S25 Ultra. Featuring an advanced quad-camera system, seamless 5G connectivity, and the most powerful processor ever in a Galaxy smartphone.</p>
+            <div class="hero-buttons">
+                <a href="#preorder" class="cta-button">Pre-order Now</a>
+                <a href="#features" class="cta-button outline">Explore Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <h2 class="section-title reveal">Revolutionary Features</h2>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Samsung Galaxy Camera">
+                    </div>
+                    <div class="feature-content">
+                        <h3>200MP Quad Camera</h3>
+                        <p>Capture stunning detail with the industry-first 200MP sensor. Nightography, 8K video recording, and AI-powered photography.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card reveal">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Samsung Galaxy Display">
+                    </div>
+                    <div class="feature-content">
+                        <h3>6.9" Dynamic AMOLED 2X</h3>
+                        <p>Experience breathtaking visuals with our brightest and most responsive display yet. 120Hz adaptive refresh rate and HDR10+ support.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card reveal">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1428&q=80" alt="Samsung Galaxy Processor">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Snapdragon 8 Gen 3</h3>
+                        <p>Powered by the latest Snapdragon processor for unparalleled performance. Next-gen AI capabilities and 5G connectivity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section class="video-showcase">
+        <div class="container">
+            <h2 class="section-title reveal">Experience Innovation</h2>
+            <div class="video-container reveal">
+                <video id="productVideo" poster="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" muted loop autoplay>
+                    <source src="videoplayback.mp4" type="video/mp4">
+                    
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay" id="videoOverlay">
+                    <div class="play-btn" id="playBtn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <p>Watch the Galaxy S25 Ultra in action</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title reveal">Design Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item reveal">
+                    <img src="https://tinyurl.com/3247fubn" alt="Galaxy S25 Ultra Front">
+                    <div class="gallery-overlay">
+                        <h3>Elegant Front Design</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Galaxy S25 Ultra Display">
+                    <div class="gallery-overlay">
+                        <h3>Stunning Display</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Galaxy S25 Ultra Camera">
+                    <div class="gallery-overlay">
+                        <h3>Advanced Camera System</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Galaxy S25 Ultra Colors">
+                    <div class="gallery-overlay">
+                        <h3>Multiple Color Options</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section class="section" id="specs">
+        <div class="container">
+            <h2 class="section-title reveal">Technical Specifications</h2>
+            <div class="specs-grid">
+                <div class="spec-card reveal">
+                    <div class="spec-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Processor</h3>
+                    <p>Snapdragon 8 Gen 3 (4nm)</p>
+                    <p>Octa-core (1x3.3 GHz Cortex-X4 & 5x3.2 GHz Cortex-A720 & 2x2.3 GHz Cortex-A520)</p>
+                </div>
+                
+                <div class="spec-card reveal">
+                    <div class="spec-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Camera</h3>
+                    <p>200 MP wide, f/1.7</p>
+                    <p>48 MP periscope telephoto, 10x optical zoom</p>
+                    <p>12 MP ultrawide, f/2.2</p>
+                    <p>10 MP telephoto, 3x optical zoom</p>
+                </div>
+                
+                <div class="spec-card reveal">
+                    <div class="spec-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Display</h3>
+                    <p>6.9 inches Dynamic AMOLED 2X</p>
+                    <p>1440 x 3200 pixels, 20:9 ratio</p>
+                    <p>120Hz refresh rate, HDR10+</p>
+                    <p>1750 nits peak brightness</p>
+                </div>
+                
+                <div class="spec-card reveal">
+                    <div class="spec-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3>Battery</h3>
+                    <p>5000 mAh</p>
+                    <p>45W wired fast charging</p>
+                    <p>15W wireless charging</p>
+                    <p>Reverse wireless charging</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-order Section -->
+    <section class="section pre-order" id="preorder">
+        <div class="container">
+            <h2 class="section-title reveal">Pre-order Galaxy S25 Ultra</h2>
+            <p class="reveal">Be among the first to experience the future of smartphones. Pre-order now and get a free pair of Galaxy Buds Pro 2.</p>
+            
+            <div class="price reveal">From $1,199</div>
+            
+            <div class="color-options reveal">
+                <div class="color-option black active" data-color="Phantom Black"></div>
+                <div class="color-option white" data-color="Ceramic White"></div>
+                <div class="color-option blue" data-color="Samsung Blue"></div>
+                <div class="color-option gold" data-color="Phantom Gold"></div>
+            </div>
+            
+            <p id="selectedColor" class="reveal">Selected: Phantom Black</p>
+            
+            <div class="hero-buttons reveal">
+                <a href="#" class="cta-button">Pre-order Now</a>
+                <a href="#specs" class="cta-button outline">View Full Specs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Galaxy S25 Ultra</h3>
+                    <p>The ultimate smartphone experience. Redefining innovation with cutting-edge technology and premium design.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#specs">Specifications</a></li>
+                        <li><a href="#preorder">Pre-order</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Service Centers</a></li>
+                        <li><a href="#">User Manual</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Samsung Electronics Co., Ltd. All rights reserved. Galaxy S25 Ultra is a trademark of Samsung Electronics.</p>
+                <p>This is a conceptual website for demonstration purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Video Play/Pause
+        const playBtn = document.getElementById('playBtn');
+        const productVideo = document.getElementById('productVideo');
+        const videoOverlay = document.getElementById('videoOverlay');
+        
+        playBtn.addEventListener('click', () => {
+            if (productVideo.paused) {
+                productVideo.play();
+                videoOverlay.classList.add('hidden');
+            } else {
+                productVideo.pause();
+                videoOverlay.classList.remove('hidden');
+            }
+        });
+        
+        productVideo.addEventListener('click', () => {
+            if (productVideo.paused) {
+                productVideo.play();
+                videoOverlay.classList.add('hidden');
+            } else {
+                productVideo.pause();
+                videoOverlay.classList.remove('hidden');
+            }
+        });
+        
+        // Color Selection
+        const colorOptions = document.querySelectorAll('.color-option');
+        const selectedColorText = document.getElementById('selectedColor');
+        
+        colorOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove active class from all options
+                colorOptions.forEach(opt => opt.classList.remove('active'));
+                
+                // Add active class to clicked option
+                option.classList.add('active');
+                
+                // Update selected color text
+                const colorName = option.getAttribute('data-color');
+                selectedColorText.textContent = `Selected: ${colorName}`;
+            });
+        });
+        
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 150;
+            
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize page with some elements already revealed
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
